@@ -67,8 +67,7 @@ public final class AdventGui {
 
             IntConsumer setData = day -> {
                 try {
-                    String name = "/day" + day + ".txt";
-                    InputStream in = AdventGui.class.getResourceAsStream(name);
+                    InputStream in = Loader.stream(day);
 
                     if (in == null) {
                         JOptionPane.showMessageDialog(load, "It's not " + day + " December yet!", "Could not find data", JOptionPane.ERROR_MESSAGE);
