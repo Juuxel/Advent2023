@@ -38,6 +38,8 @@ public final class AdventGui {
         new Solution("Day 1 (part 2, Java)", 1, lines(Day1::part2)),
         new Solution("Day 2 (part 1, Java)", 2, lines(Day2::part1)),
         new Solution("Day 2 (part 2, Java)", 2, lines(Day2::part2)),
+        new Solution("Day 3 (part 1, Java)", 3, lines(Day3::part1)),
+        new Solution("Day 3 (part 2, Java)", 3, lines(Day3::part2)),
     };
 
     public static void main(String[] args) {
@@ -61,7 +63,7 @@ public final class AdventGui {
             JScrollPane outputScroll = new JScrollPane(output);
             JSplitPane sideSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JScrollPane(solutions), inputArea);
             JSplitPane mainSplit = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sideSplit, outputScroll);
-            JFrame frame = new JFrame("Advent of Code 2022");
+            JFrame frame = new JFrame("Advent of Code 2023");
 
             IntConsumer setData = day -> {
                 try {
