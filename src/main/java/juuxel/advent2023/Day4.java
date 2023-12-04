@@ -1,10 +1,10 @@
 package juuxel.advent2023;
 
-import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Queue;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public final class Day4 {
@@ -42,22 +42,18 @@ public final class Day4 {
     }
 
     public static void part2(Stream<String> lines) {
-        List<Card> cards = lines.map(Day4::readCard).toList();
-        Queue<Card> cardQueue = new ArrayDeque<>(cards);
+        List<Card> cards = lines.map(Day4::readCard).collect(Collectors.toCollection(ArrayList::new));
 
-        int cardCount = 0;
-
-        Card current;
-        while ((current = cardQueue.poll()) != null) {
-            cardCount++;
+        for (int i = 0; i < cards.size(); i++) {
+            Card current = cards.get(i);
             int winning = current.countWinningNumbers();
 
-            for (int i = 0; i < winning; i++) {
-                cardQueue.add(cards.get(current.id() + i));
+            for (int j = 0; j < winning; j++) {
+                cards.add(cards.get(current.id() + j));
             }
         }
 
-        System.out.println(cardCount);
+        System.out.println(cards.size());
     }
 
     private record Card(int id, List<Integer> winningNumbers, List<Integer> ourNumbers) {
