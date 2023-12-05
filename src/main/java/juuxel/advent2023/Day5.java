@@ -22,7 +22,7 @@ public final class Day5 {
         run(lines, longs -> longs.stream().mapToLong(x -> x));
     }
 
-    private static List<Mapper> readIntMap(Queue<String> lineQueue) {
+    private static List<Mapper> readMapper(Queue<String> lineQueue) {
         lineQueue.remove(); // space
         lineQueue.remove(); // title
 
@@ -61,13 +61,13 @@ public final class Day5 {
         String[] seedList = lineQueue.remove().substring(SEEDS_PREFIX.length()).split(" +");
         List<Long> seeds = Arrays.stream(seedList).map(Long::parseLong).toList();
 
-        var seedToSoil = readIntMap(lineQueue);
-        var soilToFert = readIntMap(lineQueue);
-        var fertToWater = readIntMap(lineQueue);
-        var waterToLight = readIntMap(lineQueue);
-        var lightToTemp = readIntMap(lineQueue);
-        var tempToHumidity = readIntMap(lineQueue);
-        var humidityToLocation = readIntMap(lineQueue);
+        var seedToSoil = readMapper(lineQueue);
+        var soilToFert = readMapper(lineQueue);
+        var fertToWater = readMapper(lineQueue);
+        var waterToLight = readMapper(lineQueue);
+        var lightToTemp = readMapper(lineQueue);
+        var tempToHumidity = readMapper(lineQueue);
+        var humidityToLocation = readMapper(lineQueue);
 
         var result = streamer.apply(seeds)
             .map(applyMappers(seedToSoil))
