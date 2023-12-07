@@ -48,6 +48,10 @@ public final class Day6 {
 
     private record Race(long time, long bestDistance) {
         private long waysToBeat() {
+            // The discriminant of the polynomial
+            //   P(chargeTime) = chargeTime * (time - chargeTime) + bestDistance
+            //                   ^            ^                     ^
+            //                   | speed      | travel time         | offset (we want the interval where P(ct) > 0)
             double sqrtDiscriminant = Math.sqrt(time * time - 4 * bestDistance);
             double lower = 0.5 * (time - sqrtDiscriminant);
             double upper = 0.5 * (time + sqrtDiscriminant);
