@@ -51,8 +51,8 @@ public final class Day6 {
             double sqrtDiscriminant = Math.sqrt(time * time - 4 * bestDistance);
             double lower = 0.5 * (time - sqrtDiscriminant);
             double upper = 0.5 * (time + sqrtDiscriminant);
-            long lowerI = (long) Math.floor(lower + 1);
-            long upperI = (long) Math.ceil(upper - 1);
+            long lowerI = Mth.nextLong(lower);
+            long upperI = Mth.previousLong(upper);
             return upperI - lowerI + 1;
         }
     }
