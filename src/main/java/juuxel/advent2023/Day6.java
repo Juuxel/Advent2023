@@ -48,13 +48,11 @@ public final class Day6 {
 
     private record Race(long time, long bestDistance) {
         private long waysToBeat() {
-            double discriminator = Math.sqrt(time * time - 4 * bestDistance);
-            double lower = 0.5 * (time - discriminator);
-            double upper = 0.5 * (time + discriminator);
-            long lowerI = (long) Math.ceil(lower);
-            long upperI = (long) Math.floor(upper);
-            if (lowerI == lower) lowerI++;
-            if (upperI == upper) upperI--;
+            double sqrtDiscriminant = Math.sqrt(time * time - 4 * bestDistance);
+            double lower = 0.5 * (time - sqrtDiscriminant);
+            double upper = 0.5 * (time + sqrtDiscriminant);
+            long lowerI = (long) Math.floor(lower + 1);
+            long upperI = (long) Math.ceil(upper - 1);
             return upperI - lowerI + 1;
         }
     }
