@@ -50,6 +50,8 @@ public final class AdventGui {
         new Solution("Day 6 (part 2, Java, brute-forced)", 6, linesToArgs(Day6Bruteforce::part2)),
         new Solution("Day 7 (part 1, Java)", 7, lines(Day7::part1)),
         new Solution("Day 7 (part 2, Java)", 7, lines(Day7::part2)),
+        new Solution("Day 9 (part 1, Java)", 9, lines(Day9::part1)),
+        new Solution("Day 9 (part 2, Java)", 9, lines(Day9::part2)),
     };
 
     public static void main(String[] args) {
