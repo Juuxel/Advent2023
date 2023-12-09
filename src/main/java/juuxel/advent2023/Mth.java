@@ -18,4 +18,18 @@ public final class Mth {
         // Remove the fractional part of x, then move up to the next long
         return (long) Math.floor(x) + 1;
     }
+
+    public static long gcd(long a, long b) {
+        while (b != 0) {
+            long newA = b;
+            b = a % b;
+            a = newA;
+        }
+
+        return a;
+    }
+
+    public static long lcm(long a, long b) {
+        return a * (b / gcd(a, b));
+    }
 }
